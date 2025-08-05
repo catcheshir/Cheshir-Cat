@@ -36,7 +36,7 @@ body {
 
 .smoke-video {
   position: absolute;
-  top: -7cm;
+  top: -6cm;
   left: 0;
   width: 100%;
   height: calc(100% + 4cm);
