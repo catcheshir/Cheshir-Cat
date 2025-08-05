@@ -47,20 +47,43 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => heroTitle.classList.remove('clicked'), 300);
   });
 
-  // Анимация пузырей для кнопок
+  // Анимация пузырей для кнопок (наведение и клик)
   const bubblyButtons = document.getElementsByClassName('bubbly-button');
   for (let i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', (e) => {
-      if (!e.target.classList.contains('unavailable')) {
-        e.target.classList.remove('animate');
-        void e.target.offsetWidth;
-        e.target.classList.add('animate');
-        setTimeout(() => e.target.classList.remove('animate'), 700);
-      } else {
-        e.target.classList.add('clicked-unavailable');
-        setTimeout(() => e.target.classList.remove('clicked-unavailable'), 500);
+    const button = bubblyButtons[i];
+    let isAnimating = false;
+
+    // При клике
+    button.addEventListener('click', (e) => {
+      if (button.classList.contains('unavailable')) {
+        e.preventDefault();
+        button.classList.add('clicked-unavailable');
+        setTimeout(() => button.classList.remove('clicked-unavailable'), 500);
+      } else if (!isAnimating) {
+        isAnimating = true;
+        button.classList.remove('animate');
+        void button.offsetWidth;
+        button.classList.add('animate');
+        setTimeout(() => {
+          button.classList.remove('animate');
+          isAnimating = false;
+        }, 700);
       }
-    }, false);
+    });
+
+    // При наведении
+    button.addEventListener('mouseover', () => {
+      if (!button.classList.contains('unavailable') && !isAnimating) {
+        isAnimating = true;
+        button.classList.remove('animate');
+        void button.offsetWidth;
+        button.classList.add('animate');
+        setTimeout(() => {
+          button.classList.remove('animate');
+          isAnimating = false;
+        }, 700);
+      }
+    });
   }
 
   // Падающие звёзды
