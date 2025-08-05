@@ -36,7 +36,7 @@ body {
 
 .smoke-video {
   position: absolute;
-  top: -7cm;
+  top: -6cm;
   left: 0;
   width: 100%;
   height: calc(100% + 4cm);
@@ -107,8 +107,8 @@ body {
   padding: 0;
   width: 100%;
   text-align: center;
-  font-size: 2.5em;
-  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  font-family: 'Lobster', serif;
   color: #ff00ff;
   text-transform: uppercase;
   white-space: nowrap;
@@ -127,6 +127,20 @@ body {
 .hero-title span.visible {
   animation: animate 0.25s ease-in-out forwards;
 }
+
+.hero-title span:nth-child(1) { --n: 1; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(2) { --n: 2; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(3) { --n: 3; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(4) { --n: 4; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(5) { --n: 5; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(6) { --n: 6; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(7) { --n: 7; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(8) { --n: 8; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(9) { --n: 9; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(10) { --n: 10; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(11) { --n: 11; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(12) { --n: 12; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
+.hero-title span:nth-child(13) { --n: 13; animation-delay: calc(1.5s + 0.2s * (var(--n) - 1)); }
 
 @keyframes animate {
   0% { opacity: 0; transform: rotateY(90deg) scale(0.8); }
@@ -293,6 +307,6 @@ body {
   font-size: 16px;
 }
 
-/* Адаптивность (оставлена как есть) — без изменений */
+/* Адаптив (оставлено без изменений) */
 @media (max-width: 768px) { ... }
 @media (max-width: 480px) { ... }
