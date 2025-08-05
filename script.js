@@ -35,43 +35,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Анимация логотипа
   const mainLogoDiv = document.getElementById('logoMain');
-  mainLogoDiv.addEventListener('click', () => {
+  mainLogoDiv?.addEventListener('click', () => {
     mainLogoDiv.classList.add('clicked');
     setTimeout(() => mainLogoDiv.classList.remove('clicked'), 300);
   });
 
   // Анимация заголовка
   const heroTitle = document.querySelector('.hero-title');
-  heroTitle.addEventListener('click', () => {
+  heroTitle?.addEventListener('click', () => {
     heroTitle.classList.add('clicked');
     setTimeout(() => heroTitle.classList.remove('clicked'), 300);
   });
 
-  // Анимация пузырей для кнопок (наведение и клик)
+  // Анимация пузырей и отложенный переход
   const bubblyButtons = document.getElementsByClassName('bubbly-button');
   for (let i = 0; i < bubblyButtons.length; i++) {
     const button = bubblyButtons[i];
     let isAnimating = false;
 
-    // При клике
     button.addEventListener('click', (e) => {
       if (button.classList.contains('unavailable')) {
         e.preventDefault();
         button.classList.add('clicked-unavailable');
         setTimeout(() => button.classList.remove('clicked-unavailable'), 500);
       } else if (!isAnimating) {
+        e.preventDefault();
         isAnimating = true;
         button.classList.remove('animate');
         void button.offsetWidth;
         button.classList.add('animate');
+
         setTimeout(() => {
           button.classList.remove('animate');
           isAnimating = false;
-        }, 700);
+
+          const href = button.getAttribute('href');
+          if (href && href !== 'javascript:void(0)') {
+            window.location.href = href;
+          }
+        }, 1000); // 1 секунда задержки
       }
     });
 
-    // При наведении
+    // Пузыри при наведении (оставим)
     button.addEventListener('mouseover', () => {
       if (!button.classList.contains('unavailable') && !isAnimating) {
         isAnimating = true;
