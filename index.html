@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Cheshire Cat - магия уюта и релакса" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cheshire Cat - магия уюта и релакса">
   <title>Cheshire Cat</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="media/catlogo.gif" as="image">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
     <canvas id="particleCanvas"></canvas>
     <div class="main-content">
       <div class="hero-main" id="logoMain">
-        <img src="media/catlogo.gif" alt="logo main" class="main-logo" loading="eager" onerror="this.src='media/catlogo.png'" />
+        <img src="media/catlogo.gif" alt="logo main" class="main-logo" loading="eager">
       </div>
       <h1 class="hero-title">
         <span>C</span><span>h</span><span>e</span><span>s</span><span>h</span><span>i</span><span>r</span><span>e</span><span>&nbsp;</span><span>C</span><span>a</span><span>t</span>
@@ -28,17 +29,16 @@
         <p>Свежие ссылки на наш Telegram <img src="media/tglogo.png" class="tg-icon" alt="tg"></p>
       </div>
       <div class="link-buttons">
-        <a href="https://t.me/Cheshyrs" class="bubbly-button cyan"><span class="emoji">🐾</span> Оператор (Купить)</a>
-        <a href="https://t.me/Cheshyrskui" class="bubbly-button green"><span class="emoji">🐾</span> Наш канал</a>
-        <a href="https://t.me/+8ElrZZ3ZTF43Njk0" class="bubbly-button pink"><span class="emoji">🐾</span> Чат (Алмата)</a>
-        <a href="javascript:void(0)" class="bubbly-button cyan unavailable"><span class="emoji">🐾</span> Чат (Астана)</a>
+        <a href="https://t.me/Cheshyrs" target="_blank" rel="noopener noreferrer" class="bubbly-button cyan">Оператор (Купить) 🐾</a>
+        <a href="https://t.me/Cheshyrskui" target="_blank" rel="noopener noreferrer" class="bubbly-button green">Наш канал 🐾</a>
+        <a href="https://t.me/+8ElrZZ3ZTF43Njk0" target="_blank" rel="noopener noreferrer" class="bubbly-button pink">Чат (Алмата) 🐾</a>
+        <a href="javascript:void(0)" class="bubbly-button unavailable">Чат (Астана) 🐾</a>
       </div>
       <div class="buttons-text">
         <p>Исчезающие двери, меняющиеся тропы... Но наш сайт всегда знает путь. Следите за свежими ссылками — они ведут к <em>горизонтам релакса</em>.</p>
       </div>
     </div>
   </section>
-
   <script src="script.js" defer></script>
 </body>
 </html>
