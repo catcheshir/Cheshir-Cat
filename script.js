@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Починка GIF
+  // Предварительная загрузка GIF
   const mainLogo = document.querySelector('.main-logo');
-  const src = mainLogo.src;
-  mainLogo.src = '';
-  setTimeout(() => {
-    mainLogo.src = src + '?v=' + Date.now();
-  }, 50);
+  const preloadImage = new Image();
+  preloadImage.src = 'media/catlogo.gif';
+  preloadImage.onload = () => {
+    mainLogo.src = preloadImage.src;
+    console.log('GIF загружен:', preloadImage.src);
+  };
+  preloadImage.onerror = () => {
+    console.error('Ошибка загрузки GIF');
+  };
 
   // Проверка остальных медиа
   const checkMedia = (src, type) => {
@@ -36,41 +40,30 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => mainLogoDiv.classList.remove('clicked'), 300);
   });
 
-  // Анимация заголовка (Cheshire Cat)
+  // Анимация заголовка
   const heroTitle = document.querySelector('.hero-title');
   heroTitle.addEventListener('click', () => {
     heroTitle.classList.add('clicked');
     setTimeout(() => heroTitle.classList.remove('clicked'), 300);
   });
 
-  // Пузырьковая анимация кнопок
-  const animateButton = function (e) {
-    if (!e.target.classList.contains('unavailable')) {
-      // Без e.preventDefault(), чтобы разрешить переход по ссылкам
-      e.target.classList.remove('animate');
-      void e.target.offsetWidth; // сброс
-      e.target.classList.add('animate');
-      setTimeout(() => {
-        e.target.classList.remove('animate');
-      }, 700);
-    } else {
-      e.preventDefault(); // Для .unavailable, чтобы не было перехода
-    }
-  };
-
+  // Анимация пузырей для кнопок
   const bubblyButtons = document.getElementsByClassName('bubbly-button');
   for (let i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton, false);
+    bubblyButtons[i].addEventListener('click', (e) => {
+      if (!e.target.classList.contains('unavailable')) {
+        e.target.classList.remove('animate');
+        void e.target.offsetWidth;
+        e.target.classList.add('animate');
+        setTimeout(() => e.target.classList.remove('animate'), 700);
+      } else {
+        e.target.classList.add('clicked-unavailable');
+        setTimeout(() => e.target.classList.remove('clicked-unavailable'), 500);
+      }
+    }, false);
   }
 
-  // Анимация для unavailable кнопки
-  const unavailableButton = document.querySelector('.bubbly-button.unavailable');
-  unavailableButton?.addEventListener('click', () => {
-    unavailableButton.classList.add('clicked-unavailable');
-    setTimeout(() => unavailableButton.classList.remove('clicked-unavailable'), 500);
-  });
-
-  // Падающие звезды
+  // Падающие звёзды
   const canvas = document.getElementById('particleCanvas');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
