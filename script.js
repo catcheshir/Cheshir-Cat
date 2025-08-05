@@ -40,12 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => mainLogoDiv.classList.remove('clicked'), 300);
   });
 
-  // Анимация заголовка
+  // Анимация заголовка (при клике)
   const heroTitle = document.querySelector('.hero-title');
   heroTitle?.addEventListener('click', () => {
     heroTitle.classList.add('clicked');
     setTimeout(() => heroTitle.classList.remove('clicked'), 300);
   });
+
+  // ⏱️ Анимация появления букв в заголовке
+  const spans = document.querySelectorAll('.hero-title span');
+  const initialDelay = 1500; // 1.5 сек
+  const totalTime = 3000; // 3 сек
+  const count = spans.length;
+  const step = totalTime / count;
+
+  setTimeout(() => {
+    spans.forEach((span, index) => {
+      setTimeout(() => {
+        span.classList.add('visible');
+      }, step * index);
+    });
+  }, initialDelay);
 
   // Анимация пузырей и отложенный переход
   const bubblyButtons = document.getElementsByClassName('bubbly-button');
@@ -77,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Пузыри при наведении (оставим)
+    // Пузыри при наведении
     button.addEventListener('mouseover', () => {
       if (!button.classList.contains('unavailable') && !isAnimating) {
         isAnimating = true;
