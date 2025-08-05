@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ⏱️ Анимация появления букв в заголовке
   const spans = document.querySelectorAll('.hero-title span');
-  const initialDelay = 500; // 0.5 сек
+  const initialDelay = 1000; // Изменено на 1 секунду
   const totalTime = 1700; // 1.7 сек (2.2 сек - initialDelay)
   const count = spans.length;
   const step = totalTime / count;
