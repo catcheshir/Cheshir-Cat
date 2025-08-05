@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Cheshire Cat - магия уюта и релакса">
   <title>Cheshire Cat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ШРИФТЫ -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:wght@700&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ПРЕЛОАД -->
   <link rel="preload" href="media/catlogo.gif" as="image">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,31 +20,40 @@
     <video class="smoke-video" autoplay loop muted playsinline preload="auto" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
       <source src="media/smoke.mp4" type="video/mp4">
     </video>
+
     <canvas id="particleCanvas"></canvas>
+
     <div class="main-content">
       <div class="hero-main" id="logoMain">
         <img src="media/catlogo.gif" alt="logo main" class="main-logo" loading="eager">
       </div>
+
       <h1 class="hero-title">
         <span>C</span><span>h</span><span>e</span><span>s</span><span>h</span><span>i</span><span>r</span><span>e</span><span>&nbsp;</span><span>C</span><span>a</span><span>t</span>
       </h1>
+
       <div class="hero-subtext">
         <p>"Чершиский кот" — ваш проводник в мир невидимых возможностей.</p>
       </div>
+
       <div class="hero-info">
         <p>Свежие ссылки на наш Telegram <img src="media/tglogo.png" class="tg-icon" alt="tg"></p>
       </div>
+
       <div class="link-buttons">
         <a href="https://t.me/Cheshyrs" target="_blank" rel="noopener noreferrer" class="bubbly-button cyan">Оператор (Купить) 🐾</a>
         <a href="https://t.me/Cheshyrskui" target="_blank" rel="noopener noreferrer" class="bubbly-button green">Наш канал 🐾</a>
         <a href="https://t.me/+8ElrZZ3ZTF43Njk0" target="_blank" rel="noopener noreferrer" class="bubbly-button pink">Чат (Алмата) 🐾</a>
         <a href="javascript:void(0)" class="bubbly-button unavailable">Чат (Астана) 🐾</a>
       </div>
+
       <div class="buttons-text">
         <p>Исчезающие двери, меняющиеся тропы... Но наш сайт всегда знает путь. Следите за свежими ссылками — они ведут к <em>горизонтам релакса</em>.</p>
       </div>
     </div>
   </section>
+
+  <!-- JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
