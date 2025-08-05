@@ -38,7 +38,7 @@ body {
 /* Видео дыма */
 .smoke-video {
   position: absolute;
-  top: -7cm;
+  top: -4cm;
   left: 0;
   width: 100%;
   height: calc(100% + 4cm);
@@ -187,8 +187,8 @@ body {
   position: relative;
   text-decoration: none;
   font-weight: bold;
-  background: #ff00ff; /* непрозрачный розовый фон */
-  color: #ffffff; /* белый текст для контраста */
+  background: #ff00ff; /* розовый фон */
+  color: #ffffff; /* белый текст */
   box-shadow: 0 2px 25px rgba(255, 0, 255, 0.5);
   transition: transform 0.1s ease-in, box-shadow 0.25s ease-in;
 }
@@ -252,7 +252,7 @@ body {
 
 .bubbly-button:active {
   transform: scale(0.9);
-  background: #cc00cc; /* непрозрачный при нажатии */
+  background: #cc00cc; /* темнее при нажатии */
   box-shadow: 0 2px 25px rgba(255, 0, 255, 0.2);
 }
 
