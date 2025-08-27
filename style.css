@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+/* Подключение шрифта Click.ttf */
+@font-face {
+    font-family: 'Click';
+    src: url('Fonts/Click.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background: #382633;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    cursor: none;
+}
+
+/* Фон */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(56, 38, 51, 0.8), rgba(56, 38, 51, 0.4));
+}
+
+/* Контент */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Логотип */
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #CC0066;
+    box-shadow: 0 0 8px #CC0066;
+    margin-bottom: 20px;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Заголовок */
+.title {
+    font-family: 'Click', sans-serif;
+    font-size: 60px;
+    color: #c71585;
+    margin-bottom: 15px;
+    animation: simplePulse 3s ease-in-out infinite;
+}
+
+@keyframes simplePulse {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.7; transform: scale(1); }
+}
+
+/* Подзаголовок */
+.subtitle {
+    font-family: 'Click', sans-serif;
+    font-size: 24px;
+    color: #f0e6ff;
+    margin-bottom: 20px;
+}
+
+/* Текст */
+.chat-text {
+    margin-bottom: 30px;
+}
+
+.chat-text span {
+    font-family: 'Click', sans-serif;
+    font-size: 18px;
+    color: #f0e6ff;
+}
+
+/* Кнопки */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.bubble-button {
+    --hover: 0;
+    --button-bg: #CC0066;
+    --button-border: #c71585;
+    --button-label: #fff;
+    --button-shadow-1: rgba(199, 21, 133, 0.35);
+    --button-shadow-2: rgba(240, 230, 255, 0.55);
+    
+    cursor: none;
+    position: relative;
+    padding: 10px 20px;
+    background-color: var(--button-bg);
+    border: 0.2rem solid var(--button-border);
+    border-radius: 3rem;
+    color: var(--button-label);
+    font: 500 16px 'Inter', sans-serif;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    width: 220px;
+    min-width: 220px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Логотип в кнопках */
+.bubble-button::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('media/tglogo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Неоновая анимация */
+.bubble-button {
+    animation: neonGlow 2s infinite;
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7),
+                    0 0 10px rgba(255, 0, 153, 0.5),
+                    0 0 15px rgba(255, 0, 153, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(255, 0, 153, 0.9),
+                    0 0 20px rgba(255, 0, 153, 0.7),
+                    0 0 30px rgba(255, 0, 153, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7),
+                    0 0 10px rgba(255, 0, 153, 0.5),
+                    0 0 15px rgba(255, 0, 153, 0.3);
+    }
+}
+
+.bubble-button:hover {
+    transform: translateY(-3px);
+    animation: neonGlowFast 1s infinite;
+}
+
+@keyframes neonGlowFast {
+    0% {
+        box-shadow: 0 0 8px rgba(255, 0, 153, 0.9),
+                    0 0 16px rgba(255, 0, 153, 0.7),
+                    0 0 24px rgba(255, 0, 153, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 0, 153, 1),
+                    0 0 30px rgba(255, 0, 153, 0.8),
+                    0 0 45px rgba(255, 0, 153, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 8px rgba(255, 0, 153, 0.9),
+                    0 0 16px rgba(255, 0, 153, 0.7),
+                    0 0 24px rgba(255, 0, 153, 0.5);
+    }
+}
+
+.bubble-button.clicked {
+    animation: neonExplosion 1.5s ease-in-out;
+}
+
+@keyframes neonExplosion {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 0, 153, 1),
+                    0 0 60px rgba(255, 0, 153, 0.8),
+                    0 0 90px rgba(255, 0, 153, 0.6);
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7);
+        transform: scale(1);
+    }
+}
+
+/* Анимированный курсор */
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c71585;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: cursorPulse 2s infinite;
+}
+
+@keyframes cursorPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+}
+
+/* Звезды для курсора */
+.star {
+    transform-style: preserve-3d;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    color: red;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.star:before {
+    position: absolute;
+    content: '✦';
+    color: inherit;
+    inset: 0;
+    text-shadow: 0 0 .8em #fff5;
+}
+
+/* Стили для SVG кота */
+.field {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.cat {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+}
+
+/* Плавное появление и исчезновение тела кота */
+.tail,
+.body,
+.paws,
+.head-transparent {
+    animation-name: cat-opacity;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* Анимация прозрачности для тела */
+@keyframes cat-opacity {
+    0% { opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0; }
+}
+
+/* Глаза и зубы — всегда видимы */
+.eyes,
+.teeth {
+    opacity: 1 !important;
+    animation: none !important;
+}
+
+/* Анимация движения глаз (зрачков) */
+.r-eye {
+    animation-name: move-eye-left;
+    animation-duration: 10s;
+    animation-delay: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+.l-eye {
+    animation-name: move-eye-right;
+    animation-duration: 10s;
+    animation-delay: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+/* Ключевые кадры для движения глаз */
+@keyframes move-eye-left {
+    0% { transform: translate(0px); }
+    20% { transform: translate(-10px); }
+    50% { transform: translate(5px); }
+    100% { transform: translate(0px); }
+}
+
+@keyframes move-eye-right {
+    0% { transform: translate(0px); }
+    20% { transform: translate(10px); }
+    50% { transform: translate(-5px); }
+    100% { transform: translate(0px); }
+}
+
+/* Анимация зубов */
+.tooth:nth-child(3n+1),
+.tooth:nth-child(4n+1) {
+    animation-name: tooth-stroke, move-tooth;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.tooth:nth-child(4n+1) {
+    animation-delay: 1s;
+}
+
+/* Ключевые кадры для анимации зубов */
+@keyframes tooth-stroke {
+    0% { stroke: #000; }
+    50% { stroke: #fff; }
+    100% { stroke: #000; }
+}
+
+@keyframes move-tooth {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+    100% { transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .logo { width: 100px; height: 100px; }
+    .title { font-size: 48px; }
+    .subtitle { font-size: 20px; }
+    .chat-text span { font-size: 16px; }
+    .bubble-button { 
+        width: 200px; 
+        min-width: 200px;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .bubble-button::before {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { width: 80px; height: 80px; }
+    .title { font-size: 36px; }
+    .subtitle { font-size: 16px; }
+    .chat-text span { font-size: 14px; }
+    .bubble-button { 
+        width: 180px; 
+        min-width: 180px;
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+    .bubble-button::before {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Дымовые надписи */
+.smoke-text {
+    position: fixed;
+    font-family: 'Click', sans-serif;
+    font-size: 20px;
+    color: rgba(240, 230, 255, 0.9);
+    text-shadow: 0 0 10px rgba(199, 21, 133, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 998;
+    filter: blur(2px);
+    animation: smokeEffect 8s ease-out forwards;
+}
+
+@keyframes smokeEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+        filter: blur(10px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(2px);
+    }
+    80% {
+        opacity: 0.8;
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scale(1.2);
+        filter: blur(10px);
+    }
+}
+
+/* Анимированный заголовок */
