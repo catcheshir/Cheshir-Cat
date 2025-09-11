@@ -17,7 +17,6 @@
 
 body {
     overflow-x: hidden;
-    background: #382633;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +24,7 @@ body {
     cursor: none;
 }
 
-/* Фон */
+/* Фон с изображением */
 .background {
     position: fixed;
     top: 0;
@@ -33,6 +32,8 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    background: url('media/background.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 .gradient-overlay {
@@ -61,31 +62,51 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 1px solid #CC0066;
-    box-shadow: 0 0 8px #CC0066;
+    border: 2px solid #CC0066;
+    box-shadow: 0 0 10px #CC0066, 0 0 20px #CC0066 inset;
     margin-bottom: 20px;
-    animation: pulse 3s ease-in-out infinite;
+    animation: rotate-swing 4s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+/* Анимация лёгкого качания */
+@keyframes rotate-swing {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(3deg); }
+    50%  { transform: rotate(0deg); }
+    75%  { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
 }
 
-/* Заголовок */
+/* Заголовок с новой анимацией */
 .title {
     font-family: 'Click', sans-serif;
     font-size: 60px;
-    color: #c71585;
     margin-bottom: 15px;
-    animation: simplePulse 3s ease-in-out infinite;
+
+    /* 🎨 Градиентный текст */
+    background: linear-gradient(90deg, #ff9ecd, #b57edc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* ✨ Мягкое свечение */
+    text-shadow: 0 0 15px rgba(255, 158, 205, 0.6),
+                 0 0 30px rgba(181, 126, 220, 0.5);
+
+    animation: titleGlow 3s ease-in-out infinite;
 }
 
-@keyframes simplePulse {
-    0% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 0.7; transform: scale(1); }
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(199, 21, 133, 0.3),
+                 0 0 20px rgba(199, 21, 133, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(199, 21, 133, 0.9),
+                 0 0 45px rgba(199, 21, 133, 0.6),
+                 0 0 65px rgba(199, 21, 133, 0.4);
+    transform: scale(1.08);
+  }
 }
 
 /* Подзаголовок */
@@ -107,7 +128,7 @@ body {
     color: #f0e6ff;
 }
 
-/* Кнопки */
+/* Кнопки с тонким анимированным градиентом */
 .buttons-container {
     display: flex;
     flex-direction: column;
@@ -120,17 +141,15 @@ body {
 
 .bubble-button {
     --hover: 0;
-    --button-bg: #CC0066;
+    --button-bg: transparent;
     --button-border: #c71585;
     --button-label: #fff;
-    --button-shadow-1: rgba(199, 21, 133, 0.35);
-    --button-shadow-2: rgba(240, 230, 255, 0.55);
     
     cursor: none;
     position: relative;
     padding: 10px 20px;
     background-color: var(--button-bg);
-    border: 0.2rem solid var(--button-border);
+    border: 0.15rem solid var(--button-border);
     border-radius: 3rem;
     color: var(--button-label);
     font: 500 16px 'Inter', sans-serif;
@@ -145,63 +164,104 @@ body {
     justify-content: center;
     gap: 8px;
     white-space: nowrap;
+    overflow: hidden;
 }
 
-/* Логотип в кнопках */
+/* Тонкий анимированный градиент по кругу */
 .bubble-button::before {
     content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: conic-gradient(
+        transparent,
+        #ffc0cb,
+        #ff69b4,
+        #c71585,
+        #ffffff,
+        #ff69b4,
+        transparent
+    );
+    animation: rotateGradient 4s linear infinite;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+@keyframes rotateGradient {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Затемнение фона под градиентом */
+.bubble-button::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #382633;
+    border-radius: 3rem;
+    z-index: -1;
+}
+
+/* Логотип в кнопках с тонкой белой обводкой */
+.bubble-button .tg-logo {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background-image: url('media/tglogo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    filter: brightness(1.8) drop-shadow(0 0 0.5px #FFFFFF) drop-shadow(0 0 1px #FFFFFF);
+    transition: all 0.3s ease;
 }
 
-/* Неоновая анимация */
+.bubble-button:hover .tg-logo {
+    filter: brightness(2.2) drop-shadow(0 0 1px #FFFFFF) drop-shadow(0 0 1.5px #FFFFFF);
+}
+
+/* Неоновая анимация - тонкая */
 .bubble-button {
-    animation: neonGlow 2s infinite;
+    animation: neonGlow 3s infinite;
 }
 
 @keyframes neonGlow {
     0% {
-        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7),
-                    0 0 10px rgba(255, 0, 153, 0.5),
-                    0 0 15px rgba(255, 0, 153, 0.3);
+        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5),
+                    0 0 6px rgba(199, 21, 133, 0.3);
     }
     50% {
-        box-shadow: 0 0 10px rgba(255, 0, 153, 0.9),
-                    0 0 20px rgba(255, 0, 153, 0.7),
-                    0 0 30px rgba(255, 0, 153, 0.5);
+        box-shadow: 0 0 6px rgba(255, 105, 180, 0.8),
+                    0 0 12px rgba(199, 21, 133, 0.5);
     }
     100% {
-        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7),
-                    0 0 10px rgba(255, 0, 153, 0.5),
-                    0 0 15px rgba(255, 0, 153, 0.3);
+        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5),
+                    0 0 6px rgba(199, 21, 133, 0.3);
     }
 }
 
 .bubble-button:hover {
-    transform: translateY(-3px);
-    animation: neonGlowFast 1s infinite;
+    transform: translateY(-2px);
+    animation: neonGlowFast 2s infinite;
 }
 
 @keyframes neonGlowFast {
     0% {
-        box-shadow: 0 0 8px rgba(255, 0, 153, 0.9),
-                    0 0 16px rgba(255, 0, 153, 0.7),
-                    0 0 24px rgba(255, 0, 153, 0.5);
+        box-shadow: 0 0 4px rgba(255, 105, 180, 0.6),
+                    0 0 8px rgba(199, 21, 133, 0.4);
     }
     50% {
-        box-shadow: 0 0 15px rgba(255, 0, 153, 1),
-                    0 0 30px rgba(255, 0, 153, 0.8),
-                    0 0 45px rgba(255, 0, 153, 0.6);
+        box-shadow: 0 0 8px rgba(255, 105, 180, 0.9),
+                    0 0 16px rgba(199, 21, 133, 0.6);
     }
-    100% {
-        box-shadow: 0 0 8px rgba(255, 0, 153, 0.9),
-                    0 0 16px rgba(255, 0, 153, 0.7),
-                    0 0 24px rgba(255, 0, 153, 0.5);
+    to {
+        box-shadow: 0 0 4px rgba(255, 105, 180, 0.6),
+                    0 0 8px rgba(199, 21, 133, 0.4);
     }
 }
 
@@ -211,16 +271,16 @@ body {
 
 @keyframes neonExplosion {
     0% {
-        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7);
+        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5);
     }
     50% {
-        box-shadow: 0 0 30px rgba(255, 0, 153, 1),
-                    0 0 60px rgba(255, 0, 153, 0.8),
-                    0 0 90px rgba(255, 0, 153, 0.6);
-        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.8),
+                    0 0 30px rgba(199, 21, 133, 0.6),
+                    0 0 45px rgba(255, 105, 180, 0.4);
+        transform: scale(1.05);
     }
     100% {
-        box-shadow: 0 0 5px rgba(255, 0, 153, 0.7);
+        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5);
         transform: scale(1);
     }
 }
@@ -373,9 +433,9 @@ body {
         font-size: 14px;
         padding: 8px 16px;
     }
-    .bubble-button::before {
-        width: 18px;
-        height: 18px;
+    .bubble-button .tg-logo {
+        width: 16px;
+        height: 16px;
     }
 }
 
@@ -390,9 +450,9 @@ body {
         font-size: 12px;
         padding: 6px 14px;
     }
-    .bubble-button::before {
-        width: 16px;
-        height: 16px;
+    .bubble-button .tg-logo {
+        width: 14px;
+        height: 14px;
     }
 }
 
@@ -430,6 +490,4 @@ body {
         transform: translateY(-20px) scale(1.2);
         filter: blur(10px);
     }
-}
-
-/* Анимированный заголовок */
+    }
