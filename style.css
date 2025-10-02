@@ -2,97 +2,91 @@
 
 /* Подключение шрифта Click.ttf */
 @font-face {
-    font-family: 'Click';
-    src: url('Fonts/Click.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Click';
+  src: url('Fonts/Click.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
 }
 
 /* Основные стили */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    cursor: none;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  cursor: none;
 }
 
 /* Фон с изображением */
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background: url('media/background.jpg') no-repeat center center;
-    background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: url('media/background.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 .gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(56, 38, 51, 0.8), rgba(56, 38, 51, 0.4));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(56, 38, 51, 0.8), rgba(56, 38, 51, 0.4));
 }
 
 /* Контент */
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
 }
 
 /* Логотип */
 .logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid #CC0066;
-    box-shadow: 0 0 10px #CC0066, 0 0 20px #CC0066 inset;
-    margin-bottom: 20px;
-    animation: rotate-swing 4s ease-in-out infinite;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #CC0066;
+  box-shadow: 0 0 10px #CC0066, 0 0 20px #CC0066 inset;
+  margin-bottom: 20px;
+  animation: rotate-swing 4s ease-in-out infinite;
 }
 
-/* Анимация лёгкого качания */
 @keyframes rotate-swing {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(3deg); }
-    50%  { transform: rotate(0deg); }
-    75%  { transform: rotate(-3deg); }
-    100% { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
 }
 
-/* Заголовок с новой анимацией */
+/* Заголовок */
 .title {
-    font-family: 'Click', sans-serif;
-    font-size: 60px;
-    margin-bottom: 15px;
-
-    /* 🎨 Градиентный текст */
-    background: linear-gradient(90deg, #ff9ecd, #b57edc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* ✨ Мягкое свечение */
-    text-shadow: 0 0 15px rgba(255, 158, 205, 0.6),
-                 0 0 30px rgba(181, 126, 220, 0.5);
-
-    animation: titleGlow 3s ease-in-out infinite;
+  font-family: 'Click', sans-serif;
+  font-size: 60px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff9ecd, #b57edc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 158, 205, 0.6),
+               0 0 30px rgba(181, 126, 220, 0.5);
+  animation: titleGlow 3s ease-in-out infinite;
 }
 
 @keyframes titleGlow {
@@ -111,383 +105,196 @@ body {
 
 /* Подзаголовок */
 .subtitle {
-    font-family: 'Click', sans-serif;
-    font-size: 24px;
-    color: #f0e6ff;
-    margin-bottom: 20px;
+  font-family: 'Click', sans-serif;
+  font-size: 24px;
+  color: #f0e6ff;
+  margin-bottom: 20px;
 }
 
 /* Текст */
 .chat-text {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .chat-text span {
-    font-family: 'Click', sans-serif;
-    font-size: 18px;
-    color: #f0e6ff;
+  font-family: 'Click', sans-serif;
+  font-size: 18px;
+  color: #f0e6ff;
 }
 
-/* Кнопки с тонким анимированным градиентом */
+/* Контейнер кнопок */
 .buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 40px;
-    width: 100%;
-    max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 500px;
 }
 
+/* Кнопки с маской */
 .bubble-button {
-    --hover: 0;
-    --button-bg: transparent;
-    --button-border: #c71585;
-    --button-label: #fff;
-    
-    cursor: none;
-    position: relative;
-    padding: 10px 20px;
-    background-color: var(--button-bg);
-    border: 0.15rem solid var(--button-border);
-    border-radius: 3rem;
-    color: var(--button-label);
-    font: 500 16px 'Inter', sans-serif;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    width: 220px;
-    min-width: 220px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    white-space: nowrap;
-    overflow: hidden;
+  position: relative;
+  width: 220px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.05rem;
+  border: none;
+  transition: transform 0.3s ease;
 }
 
-/* Тонкий анимированный градиент по кругу */
+/* Анимация белой маски вокруг */
 .bubble-button::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    left: -30%;
-    width: 160%;
-    height: 160%;
-    background: conic-gradient(
-        transparent,
-        #ffc0cb,
-        #ff69b4,
-        #c71585,
-        #ffffff,
-        #ff69b4,
-        transparent
-    );
-    animation: rotateGradient 4s linear infinite;
-    z-index: -1;
-    opacity: 0.8;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url(https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png);
+  background-size: 3000% 100%;
+  -webkit-mask: url(https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png);
+  -webkit-mask-size: 3000% 100%;
+  mask: url(https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png);
+  mask-size: 3000% 100%;
+  animation: maskAnimation 1.5s steps(30) infinite;
+  background-color: #fff;
+  pointer-events: none;
 }
 
-@keyframes rotateGradient {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Затемнение фона под градиентом */
-.bubble-button::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: #382633;
-    border-radius: 3rem;
-    z-index: -1;
-}
-
-/* Логотип в кнопках с тонкой белой обводкой */
-.bubble-button .tg-logo {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-image: url('media/tglogo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: brightness(1.8) drop-shadow(0 0 0.5px #FFFFFF) drop-shadow(0 0 1px #FFFFFF);
-    transition: all 0.3s ease;
-}
-
-.bubble-button:hover .tg-logo {
-    filter: brightness(2.2) drop-shadow(0 0 1px #FFFFFF) drop-shadow(0 0 1.5px #FFFFFF);
-}
-
-/* Неоновая анимация - тонкая */
-.bubble-button {
-    animation: neonGlow 3s infinite;
-}
-
-@keyframes neonGlow {
-    0% {
-        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5),
-                    0 0 6px rgba(199, 21, 133, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 6px rgba(255, 105, 180, 0.8),
-                    0 0 12px rgba(199, 21, 133, 0.5);
-    }
-    100% {
-        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5),
-                    0 0 6px rgba(199, 21, 133, 0.3);
-    }
+@keyframes maskAnimation {
+  from { -webkit-mask-position: 0 0; mask-position: 0 0; }
+  to   { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
 }
 
 .bubble-button:hover {
-    transform: translateY(-2px);
-    animation: neonGlowFast 2s infinite;
+  transform: translateY(-2px) scale(1.03);
 }
 
-@keyframes neonGlowFast {
-    0% {
-        box-shadow: 0 0 4px rgba(255, 105, 180, 0.6),
-                    0 0 8px rgba(199, 21, 133, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 8px rgba(255, 105, 180, 0.9),
-                    0 0 16px rgba(199, 21, 133, 0.6);
-    }
-    to {
-        box-shadow: 0 0 4px rgba(255, 105, 180, 0.6),
-                    0 0 8px rgba(199, 21, 133, 0.4);
-    }
-}
-
-.bubble-button.clicked {
-    animation: neonExplosion 1.5s ease-in-out;
-}
-
-@keyframes neonExplosion {
-    0% {
-        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 15px rgba(255, 105, 180, 0.8),
-                    0 0 30px rgba(199, 21, 133, 0.6),
-                    0 0 45px rgba(255, 105, 180, 0.4);
-        transform: scale(1.05);
-    }
-    100% {
-        box-shadow: 0 0 3px rgba(255, 105, 180, 0.5);
-        transform: scale(1);
-    }
+/* Лого в кнопке */
+.bubble-button .tg-logo {
+  width: 20px;
+  height: 20px;
+  background-image: url('media/tglogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(2) drop-shadow(0 0 2px #fff);
 }
 
 /* Анимированный курсор */
 .custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #c71585;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    animation: cursorPulse 2s infinite;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c71585;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: cursorPulse 2s infinite;
 }
 
 @keyframes cursorPulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
 }
 
-/* Звезды для курсора */
+/* Звезды курсора */
 .star {
-    transform-style: preserve-3d;
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    color: red;
-    pointer-events: none;
-    z-index: 9998;
+  transform-style: preserve-3d;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  color: red;
+  pointer-events: none;
+  z-index: 9998;
 }
 
 .star:before {
-    position: absolute;
-    content: '✦';
-    color: inherit;
-    inset: 0;
-    text-shadow: 0 0 .8em #fff5;
-}
-
-/* Стили для SVG кота */
-.field {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.cat {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    display: block;
-}
-
-/* Плавное появление и исчезновение тела кота */
-.tail,
-.body,
-.paws,
-.head-transparent {
-    animation-name: cat-opacity;
-    animation-duration: 12s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-/* Анимация прозрачности для тела */
-@keyframes cat-opacity {
-    0% { opacity: 0; }
-    50% { opacity: 0.7; }
-    100% { opacity: 0; }
-}
-
-/* Глаза и зубы — всегда видимы */
-.eyes,
-.teeth {
-    opacity: 1 !important;
-    animation: none !important;
-}
-
-/* Анимация движения глаз (зрачков) */
-.r-eye {
-    animation-name: move-eye-left;
-    animation-duration: 10s;
-    animation-delay: 7s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-}
-
-.l-eye {
-    animation-name: move-eye-right;
-    animation-duration: 10s;
-    animation-delay: 7s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-}
-
-/* Ключевые кадры для движения глаз */
-@keyframes move-eye-left {
-    0% { transform: translate(0px); }
-    20% { transform: translate(-10px); }
-    50% { transform: translate(5px); }
-    100% { transform: translate(0px); }
-}
-
-@keyframes move-eye-right {
-    0% { transform: translate(0px); }
-    20% { transform: translate(10px); }
-    50% { transform: translate(-5px); }
-    100% { transform: translate(0px); }
-}
-
-/* Анимация зубов */
-.tooth:nth-child(3n+1),
-.tooth:nth-child(4n+1) {
-    animation-name: tooth-stroke, move-tooth;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-}
-
-.tooth:nth-child(4n+1) {
-    animation-delay: 1s;
-}
-
-/* Ключевые кадры для анимации зубов */
-@keyframes tooth-stroke {
-    0% { stroke: #000; }
-    50% { stroke: #fff; }
-    100% { stroke: #000; }
-}
-
-@keyframes move-tooth {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(2px); }
-    100% { transform: translateY(0); }
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .logo { width: 100px; height: 100px; }
-    .title { font-size: 48px; }
-    .subtitle { font-size: 20px; }
-    .chat-text span { font-size: 16px; }
-    .bubble-button { 
-        width: 200px; 
-        min-width: 200px;
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-    .bubble-button .tg-logo {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo { width: 80px; height: 80px; }
-    .title { font-size: 36px; }
-    .subtitle { font-size: 16px; }
-    .chat-text span { font-size: 14px; }
-    .bubble-button { 
-        width: 180px; 
-        min-width: 180px;
-        font-size: 12px;
-        padding: 6px 14px;
-    }
-    .bubble-button .tg-logo {
-        width: 14px;
-        height: 14px;
-    }
+  position: absolute;
+  content: '✦';
+  color: inherit;
+  inset: 0;
+  text-shadow: 0 0 .8em #fff5;
 }
 
 /* Дымовые надписи */
 .smoke-text {
-    position: fixed;
-    font-family: 'Click', sans-serif;
-    font-size: 20px;
-    color: rgba(240, 230, 255, 0.9);
-    text-shadow: 0 0 10px rgba(199, 21, 133, 0.7);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 998;
-    filter: blur(2px);
-    animation: smokeEffect 8s ease-out forwards;
+  position: fixed;
+  font-family: 'Click', sans-serif;
+  font-size: 20px;
+  color: rgba(240, 230, 255, 0.9);
+  text-shadow: 0 0 10px rgba(199, 21, 133, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 998;
+  filter: blur(2px);
+  animation: smokeEffect 8s ease-out forwards;
 }
 
 @keyframes smokeEffect {
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.8);
-        filter: blur(10px);
-    }
-    20% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(2px);
-    }
-    80% {
-        opacity: 0.8;
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px) scale(1.2);
-        filter: blur(10px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    filter: blur(10px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(2px);
+  }
+  80% {
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(1.2);
+    filter: blur(10px);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .logo { width: 100px; height: 100px; }
+  .title { font-size: 48px; }
+  .subtitle { font-size: 20px; }
+  .chat-text span { font-size: 16px; }
+  .bubble-button {
+    width: 200px;
+    height: 55px;
+    font-size: 14px;
+  }
+  .bubble-button .tg-logo {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo { width: 80px; height: 80px; }
+  .title { font-size: 36px; }
+  .subtitle { font-size: 16px; }
+  .chat-text span { font-size: 14px; }
+  .bubble-button {
+    width: 180px;
+    height: 50px;
+    font-size: 12px;
+  }
+  .bubble-button .tg-logo {
+    width: 14px;
+    height: 14px;
+  }
     }
