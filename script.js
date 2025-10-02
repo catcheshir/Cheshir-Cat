@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Подгрузка ссылок из JSON
-fetch("data.json")
+fetch("data.php")
   .then(r => r.json())
   .then(data => {
     const buttons = document.querySelectorAll(".bubble-button");
