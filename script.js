@@ -187,3 +187,13 @@ setInterval(showSmokeText, 5000); // Каждые 10 секунд надпись
 
 // Первая надпись сразу при загрузке
 setTimeout(showSmokeText, 2000);
+
+fetch("data.json")
+  .then(r => r.json())
+  .then(data => {
+    const buttons = document.querySelectorAll(".bubble-button");
+
+    buttons[0].onclick = () => window.location.href = data.operator1;
+    buttons[1].onclick = () => window.location.href = data.operator2;
+    buttons[2].onclick = () => window.location.href = data.links;
+  });
